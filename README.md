@@ -5,7 +5,7 @@ PySOAR is a Python (3.9+) package for data analysis of translocation events duri
 * Splitting the current into bins and doing a Poisson fit on that data to help the user visually decide on what threshold should be used for this data.
 * Finding peaks function based on the threshold chosen.
 * Ability to extract features from the events using both CUSUM and ADEPT methods.
-* Histogram plots of peak curretn and dwell time data.
+* Histogram plots of peak current and dwell time data.
 
 # Installation
 
