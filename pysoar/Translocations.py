@@ -66,7 +66,7 @@ class Translocations:
         print('Peak Amplitude = ' + str(self.PeakHeight[num]) + ' nA')
 
 
-    def adept(self, num, TiLow, TiHigh):
+        def adept(self, num, TiLow, TiHigh):
         """
         Args:
             num: index of the event
@@ -126,7 +126,7 @@ class Translocations:
             FD, pcov = curve_fit(FitFuncTwo, t, x, bounds=(lb, ub), p0=starting)
             self.ADEPT_params[num] = FD
             StepRes = FitFuncTwo(t, FD[0], FD[1], FD[2], FD[3], FD[4], FD[5], FD[6])
-            self.ADEPT_curr_max[num] = max(FitFuncTwo(t, FD[0], FD[1], FD[2], FD[3], FD[4], FD[5]*5, FD[6]*5))
+            self.ADEPT_curr_max[num] = FD[0]
 
         elif N == 3:
             a = max(abs(self.MEAN[num][2:-1, 6]))
@@ -157,8 +157,7 @@ class Translocations:
             FD, pcov = curve_fit(FitFuncThree, t, x,bounds=(lb, ub), p0 = starting)
             self.ADEPT_params[num] = FD
             StepRes = FitFuncThree(t, FD[0], FD[1], FD[2], FD[3], FD[4], FD[5], FD[6], FD[7], FD[8], FD[9])
-            self.ADEPT_curr_max[num] = max(FitFuncThree(t, FD[0], FD[1], FD[2], FD[3], FD[4], FD[5], FD[6], FD[7]*5,
-                                                        FD[8]*5, FD[9]*5))
+            self.ADEPT_curr_max[num] = FD[0]
 
         plt.plot(t, x)
         plt.plot(t, StepRes, c='purple')
